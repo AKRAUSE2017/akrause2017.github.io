@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Resume Builder Application - Form</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/adjustments.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Eterna - v2.2.1
+  * Template URL: https://bootstrapmade.com/eterna-free-multipurpose-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <!--<section id="topbar" class="d-none d-lg-block">
+    <div class="container d-flex">
+      <div class="contact-info mr-auto">
+        <i class="icofont-envelope"></i><a href="mailto:contact@example.com">contact@example.com</a>
+        <i class="icofont-phone"></i> +1 5589 55488 55
+      </div>
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
+        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+        <a href="#" class="skype"><i class="icofont-skype"></i></a>
+        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+      </div>
+    </div>
+  </section>-->
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container d-flex">
+
+      <div class="logo mr-auto">
+        <h1 class="text-light"><a href="index.html"><span>Resume Builder</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <div style="padding-top:5px; float: right;" class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Menu
+        </button>
+        <div  class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" type="button" onclick="window.location.href = 'index.html'">Home</button>
+          <button class="dropdown-item" type="button" onclick="window.location.href = 'templates.html'">Templates</button>
+          <button class="dropdown-item" id="userBtn" type="button" onclick="signIn()">Sign In</button>
+        </div>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h1 style="text-align: center; padding: 3vh;">Adjust Template</h1>
+        <div class="row">
+          <div class="col-lg-10" style="margin-left: auto; margin-right: auto;">
+            <form onsubmit="saveInfo(); return false" role="form" class="">
+              <!--personal information-->
+              <h3 style="text-align: center; padding-bottom: 2vh;">Personal Information</h3>
+
+              <div class="form-row">
+                <div class="col form-group">
+                  <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" required/>
+                  <div class="validate"></div>
+                </div>
+                <div class="col form-group">
+                  <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name" required/>
+                  <div class="validate"></div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" name="city" id="city" placeholder="City" required/>
+                <div class="validate"></div>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" required/>
+                <div class="validate"></div>
+              </div>
+
+              <div class="form-group" style="padding-bottom: 2vh;">
+                <input type="text" class="form-control" name="email" id="email" placeholder="Email Address" required />
+                <div class="validate"></div>
+              </div>
+
+              <div class="form-group">
+                <textarea style="resize: none;" class="form-control" id="summary" name="summary" rows="5" maxlength = "300" placeholder="Summary" required></textarea>
+                <div class="validate"></div>
+              </div>
+
+              <!--end of personal information-->
+                
+              <!--work experience-->
+              <hr style="width:75%;">
+              <h3 style="text-align: center; padding-bottom: 2vh;">Work Experience</h3>
+              <div id="work1">
+                <div class="form-row">
+                  <div class="col form-group">
+                    <input type="text" class="form-control" name="businessName" id="businessName1" placeholder="Business Name" required/>
+                    <div class="validate"></div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input type="text" class="form-control" name="jobPosition" id="jobPosition1" placeholder="Position" required />
+                  <div class="validate"></div>
+                </div>
+
+                <div class="form-row">
+                  <div class="col form-group">
+                    <input type="text" class="form-control" name="dateStart" id="dateStart1" placeholder="Start Date" required/>
+                    <div class="validate"></div>
+                  </div>
+                  <div class="col form-group">
+                    <input type="text" class="form-control" name="dateEnd" id="dateEnd1" placeholder="End Date" required/>
+                    <div class="validate"></div>
+                  </div>
+                </div>
+              
+                <div class="form-group" style="padding-bottom: 0px;">
+                  <textarea class="form-control" style="resize: none;" style="resize: none;" id="jobDescription1" name="jobDescription" rows="5" maxlength = "300" placeholder="Description" required></textarea>
+                  <div class="validate"></div>
+                </div>
+              </div>
+              <div class="row" style="float:right;"><button type="button" onclick="addWork();">Add</button><button style="display: none;" id="removeBtnWork" type="button" onclick="removeWork();">Remove</button></div>
+              <br>
+              <br>
+            <hr style="width:75%;">
+            
+            <!--end of work experience-->
+
+            <!--education-->
+            <h3 style="text-align: center; padding-bottom: 2vh;">Education</h3>
+            <div id="school1">
+              <div class="form-row">
+                <div class="col form-group">
+                  <input type="text" class="form-control" name="institution" id="institution1" placeholder="Institution" required/>
+                  <div class="validate"></div>  
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <input type="text" class="form-control" name="educationDegree" id="educationDegree1" placeholder="Degree" required/>
+                <div class="validate"></div>
+              </div>
+
+              <div class="form-row">
+                <div class="col form-group">
+                  <input type="text" class="form-control" name="dateEnroll" id="dateEnroll1" placeholder="Start Date" required/>
+                  <div class="validate"></div>
+                </div>
+                <div class="col form-group">
+                  <input type="text" class="form-control" name="dateGrad" id="dateGrad1" placeholder="End Date" required/>
+                  <div class="validate"></div>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <textarea style="resize: none;" class="form-control" id="educationDescription1" name="educationDescription" placeholder="Description" rows="5" maxlength = "300" required></textarea>
+                <div class="validate"></div>
+              </div>
+            </div>
+            <div class="row"style="float:right;"><button type="button" onclick="addSchool();">Add</button><button style="display: none;" id="removeBtnSchool" type="button" onclick="removeSchool();">Remove</button></div>
+            <br>
+            <br>
+            <hr style="width:75%;">
+            
+            <!--end of education-->
+
+            <!--Other -->
+            <h3 style="text-align: center; padding-bottom: 2vh;">Other</h3>
+            <div class="form-group" >
+              <input type="text" class="form-control" name="otherTitle" id="otherTitle" placeholder="Title" />
+              <div class="validate"></div>
+            </div>
+            <div class="form-group" style="padding-top:0px;">
+              <textarea style="resize: none;" class="form-control" id="otherDescription" name="otherDescription" placeholder="Description" rows="5" maxlength = "300"></textarea>
+              <div class="validate"></div>
+            </div>
+            <hr style="width:75%;">
+            <!--End of other-->
+  
+
+            <div class="text-center"><button type="submit">Save</button></div>
+            </form>
+          </div>
+          
+
+        </div>
+      </div>
+    </section>
+    <!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Alena Krause & Brandon Que</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/eterna-free-multipurpose-bootstrap-template/ -->
+        Initial Template by <a style="color:#7471b4;" href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  
+  <script src="assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/adjustResume6.js" defer></script>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+  
+  <!-- firebaseUI -->
+  <script src="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-firestore.js"></script>
+  <script src="assets/js/firebase.js"></script>
+</body>
+
+</html>
