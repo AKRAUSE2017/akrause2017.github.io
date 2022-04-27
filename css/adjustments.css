@@ -1,0 +1,35 @@
+.introduction{
+  padding-bottom: 30px;
+}
+
+.parent-image{
+  overflow: hidden;
+}
+
+h2{
+  padding-bottom: 30px;
+}
+
+.bottom-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 35px;
+}
+
+.section-end{
+  padding-bottom: 40px;
+}
+
+.foot{
+  font-size: 10px;
+}
+
+.skills{
+  font-style: italic;
+}
+
+.card-header{
+  font-size: 25px;
+}
+
