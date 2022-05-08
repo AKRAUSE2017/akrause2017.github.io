@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+	
+		<!-- Third party plugin JS-->
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    	<link href="css/profilecss.css" rel="stylesheet">
+		<link href="css/styles.css" rel="stylesheet">
+        
+		<!--Firebase-->
+    	<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
+    	<script src="scripts/firebase/credentials.js"></script>
+	
+    </head>
+    
+    <body>
+    	<header>
+			<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+			
+			<div class="container bootstrap snippets bootdeys">
+				
+				<div class="row" id="user-profile">
+					
+					<div class="col-lg-3 col-md-4 col-sm-4">
+						<div class="main-box clearfix">
+							<h2 id="displayName"></h2>
+							<div style="text-align: center;">
+								<i id="userImage" class="profile-img img-responsive center-block"></i>
+							</div>
+							<div class="profile-label">
+								<span class="label label-danger">Member</span>
+							</div>
+
+							<div class="profile-details">
+								<ul class="fa-ul">
+									<li><i class="fa-li fa fa-comment"></i>Posts: <span id="postCount"></span></li>
+								</ul>
+							</div>
+
+							<div style="padding:20px;" id="homeBtn" class="profile-message-btn center-block text-center">
+								<a href="home.html" class="btn btn-primary btn-success">Home</a>
+							</div>
+							<div id="signOutBtn" class="center-block text-center">
+								<a href="#" class="btn btn-primary btn-success">Sign Out</a>
+							</div>
+							
+						</div>
+					</div>
+
+					<div class="col-lg-9 col-md-8 col-sm-8">
+						<div class="main-box clearfix">
+							<div class="profile-header">
+								<h3><span>User info</span></h3>
+
+								<div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="editProfileModalLabel" aria-hidden="true">
+									<div class="modal-dialog modal-lg" role="document">
+										<div class="modal-content">
+												<div class="modal-header d-flex align-items-center text-white">
+													<h6 class="modal-title mb-0" id="eidtProfileModalLabel">Edit Profile</h6>
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">×</span>
+													</button>
+												</div>
+					  
+												<div class="modal-body" style="text-align: center;">
+													<div class="col-lg-10" style="margin-left: auto; margin-right: auto; text-align: center;">
+														<form onsubmit="saveInfo(); return false" role="form" class="">
+															<h6 style="text-align: center; padding-bottom: 2vh;">Edit Profile</h6>
+											
+															<div class="col form-group">
+																<input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name"/>
+																<div class="validate"></div>
+															</div>
+
+															<div class="col form-group">
+																<input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name"/>
+																<div class="validate"></div>
+															</div>
+
+															<div class="col form-group">
+																<div class="dropdown">
+																	<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																		Profile Picture
+																	</button>
+																	<div class="dropdown-menu overflow-auto" aria-labelledby="dropdownMenuButton">
+																		<a id="fa-globe" class="dropdown-item" onclick="setActive(this)"><i class="fa fa-globe fa-sm"></i> Globe</a>
+																		<a id="fa-github-alt" class="dropdown-item" onclick="setActive(this)"><i class="fa fa-github-alt fa-sm"></i> Github</a>
+																		<a id="fa-rocket" class="dropdown-item" onclick="setActive(this)"><i class="fa fa-rocket fa-sm"></i> Rocket</a>
+																		<a id="fa-linux" class="dropdown-item" onclick="setActive(this)"><i class="fa fa-linux fa-sm"></i> Linux</a>
+																		<a id="fa-automobile" class="dropdown-item" onclick="setActive(this)"><i class="fa fa-automobile fa-sm"></i> Automobile</a>
+																		<a id="fa-user-secret" class="dropdown-item" onclick="setActive(this)"><i class="fa fa-user-secret fa-sm"></i> Secret</a>
+																		<a id="fa-space-shuttle" class="dropdown-item" onclick="setActive(this)"><i class="fa fa-space-shuttle fa-sm"></i> Shuttle</a>
+																		<a id="fa-bug" class="dropdown-item" onclick="setActive(this)"><i class="fa fa-bug fa-sm"></i> Bug</a>
+																		<a id="fa-shield" class="dropdown-item" onclick="setActive(this)"><i class="fa fa-shield fa-sm"></i> Shield</a>
+																		<a id="fa-simplybuilt" class="dropdown-item" onclick="setActive(this)"><i class="fa fa-simplybuilt fa-sm"></i> Box</a>
+																		<a id="fa-star-half-o" class="dropdown-item" onclick="setActive(this)"><i class="fa fa-star-half-o fa-sm"></i> Star</a>
+																		<a id="fa-drupal" class="dropdown-item" onclick="setActive(this)"><i class="fa fa-drupal fa-sm"></i> Lil Drup</a>
+																		<a id="fa-user" class="dropdown-item" onclick="setActive(this)"><i class="fa fa-user fa-sm"></i> User</a>
+																	</div>
+																</div>
+															</div>
+
+															<div class="col form-group">
+																<i id="formPfp"></i>
+															</div>
+
+											
+															<div class="text-center" style="text-align: center;">
+																<button type="button" class="btn btn-primary" id="btnSave">Save</button>
+															</div>
+
+														</form>
+										  
+													  
+													  </div>
+												</div>
+					  
+												<div class="modal-footer"></div>
+										</div>
+									</div>
+								</div>
+
+								<button type="button" class="btn btn-primary edit-profile" id="editProfileBtn" data-toggle="modal" data-target="#editProfileModal">
+									<i class="fa fa-pencil-square fa-lg"></i> Edit profile
+								</button>
+							</div>
+
+							<div class="row profile-user-info">
+								<div class="col-sm-8">
+
+									<div class="profile-user-details clearfix">
+										<div id="firstNameDiv" class="profile-user-details-label"></div>
+
+										<div id="displayFirstNameInfo" class="profile-user-details-value"></div>
+									</div>
+
+									<div class="profile-user-details clearfix">
+										<div id="lastNameDiv" class="profile-user-details-label"></div>
+
+										<div id="displayLastNameInfo" class="profile-user-details-value"></div>
+									</div>
+
+									<div class="profile-user-details clearfix">
+										<div class="profile-user-details-label">Display Name</div>
+
+										<div id="displayNameInfo" class="profile-user-details-value"></div>
+									</div>
+									
+									<div class="profile-user-details clearfix">
+										<div class="profile-user-details-label">Email</div>
+										
+										<div id="email" class="profile-user-details-value"></div>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="tabs-wrapper profile-tabs">
+								<ul class="nav nav-tabs">
+									<li class="active">Post activity</li>
+								</ul>
+
+								<div class="tab-content">
+									<div id="tab-activity">
+										<div class="table-responsive">
+											<p id="noActivity" style="text-align:center;"></p>
+
+											<table class="table">
+												<tbody>
+													<tr id="activityRow" style="display: none;">
+														<td class="text-center">
+															<i class="fa fa-comment"></i>
+														</td>
+														<td id="userActivity"></td>
+														
+														<td id="timestamp"></td>
+													</tr>
+												</tbody>
+											</table>
+											
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+    	</header>
+        
+        <!-- Core theme JS-->
+        <script src="scripts/profile.js"></script>
+		<script src="scripts/editProfile.js"></script>
+    </body>
+</html>
